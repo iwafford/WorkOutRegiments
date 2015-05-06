@@ -9,7 +9,7 @@ import java.util.Scanner;
 // Email: jordan.typeterson@gmail.com
 
 public class WorkEmGlutes {
-	private static String[] days;
+	private static String[] days = {"Upper", "Lower", "Core", "Cardio", "Rest","yomam", "shesagirl"};
 	private static String[] categories = {"Upper", "Lower", "Core", "Cardio", "Rest"};
 	private static String[][] workOut;
 	private static String[] tasks;
@@ -20,6 +20,8 @@ public class WorkEmGlutes {
 
 	public static void main(String[] args) {
 		ask();
+		whichDays();
+		System.out.println(choices(days));
 
 	}
 	
@@ -29,6 +31,7 @@ public class WorkEmGlutes {
 	}
 	
 	public static String[] whichDays(){
+		int count = 0;
 		Scanner scnr = new Scanner(System.in);
 		String response = null;
 		String[] check = new String[numDays]; 
@@ -36,64 +39,111 @@ public class WorkEmGlutes {
 	for(int i = 0; i < numDays;i++){
 		System.out.println("Day " + (i+1) + ": ");
 		response = scnr.nextLine().toLowerCase();
-		
 		switch(response){
 		
-		case "monday": days[i] = response;
-				for(int j = 1; j<i+2;j++){
+		case "monday": 
+				if( i == 0){
+					days[i] = response;
+				}
+				for(int j =0; j<i;j++){
 					if(days[j].equals("monday")){
 						System.out.println("That Day is Already Scheduled.");
 						i-=1;
+						break;
 					}
-				}
+					else{
+						days[i] = response;
+					}
+			}
 			break;
-		case "tuesday": days[i] = response;
-				for(int j = 1; j<i;j++){
-					if(days[j].equals("tuesday")){
-						System.out.println("That Day is Already Scheduled.");
-						i-=1;
-					}
+		case "tuesday": 
+			if( i == 0){
+				days[i] = response;
+			}
+			for(int j =0; j<i;j++){
+				if(days[j].equals("tuesday")){
+					System.out.println("That Day is Already Scheduled.");
+					i-=1;
+					break;
+			}
+				else{
+					days[i] = response;
 				}
+		}
 			break;
-		case "wednesday": days[i] = response;
-				for(int j = 1; j<i;j++){
-					if(days[j].equals("wednesday")){
-						System.out.println("That Day is Already Scheduled.");
-						i-=1;
-					}
+		case "wednesday":
+			if( i == 0){
+				days[i] = response;
+			}
+			for(int j =0; j<i;j++){
+				if(days[j].equals("wednesday")){
+					System.out.println("That Day is Already Scheduled.");
+					i-=1;
+					break;
+			}
+				else{
+					days[i] = response;
 				}
+			}
 			break;
-		case "thursday": days[i] = response;
-				for(int j = 1; j<i;j++){
-					if(days[j].equals("thursday")){
-						System.out.println("That Day is Already Scheduled.");
-						i-=1;
-					}
+		case "thursday": 
+			if( i == 0){
+				days[i] = response;
+			}
+			for(int j =0; j<i;j++){
+				if(days[j].equals("thursday")){
+					System.out.println("That Day is Already Scheduled.");
+					i-=1;
+					break;
+			}
+				else{
+					days[i] = response;
 				}
+		}
 			break;
-		case "friday": days[i] = response;
-				for(int j = 1; j<i;j++){
-					if(days[j].equals("friday")){
-						System.out.println("That Day is Already Scheduled.");
-						i-=1;
-					}
+		case "friday":
+			if( i == 0){
+				days[i] = response;
+			}
+			for(int j =0; j<i;j++){
+				if(days[j].equals("friday")){
+					System.out.println("That Day is Already Scheduled.");
+					i-=1;
+					break;
+			}
+				else{
+					days[i] = response;
 				}
+		}
 			break;
-		case "saturday": days[i] = response;
-				for(int j = 1; j<i;j++){
-					if(days[j].equals("saturday")){
-						System.out.println("That Day is Already Scheduled.");
-						i-=1;
-					}
+		case "saturday":
+			if( i == 0){
+				days[i] = response;
+			}
+			for(int j =0; j<i;j++){
+				if(days[j].equals("saturday")){
+					System.out.println("That Day is Already Scheduled.");
+					i-=1;
+					break;
+			}
+				else{
+					days[i] = response;
 				}
+		}
 			break;
-		case "sunday": days[i] = response;
-				for(int j = 1; j<i;j++){
-					if(days[j].equals("sunday")){
-						System.out.println("That Day is Already Scheduled.");
-						i-=1;
-					}
+		case "sunday": 
+			if( i == 0){
+				days[i] = response;
+			}
+			for(int j =0; j<i;j++){
+				if(days[j].equals("sunday")){
+					System.out.println("That Day is Already Scheduled.");
+					i-=1;break;
+			}
+				else{
+					days[i] = response;
 				}
+		}
 			break;
 		default:
 				System.out.println("That is an Invalid Response!");
@@ -111,6 +161,8 @@ public class WorkEmGlutes {
 			System.out.println("How Many Days Do You Wish To Work Out?");
 			numDays = scnr.nextInt();
 			scnr.nextLine();
+			if(numDays < 8 && numDays > 0){
+				
 			while(y == 9){
 				System.out.println("You Chose To Work Out " + numDays + " Days. Is This Correct? (Yes/No)");
 				response = scnr.nextLine();
@@ -124,20 +176,30 @@ public class WorkEmGlutes {
 				scnr.nextLine();
 			}
 			else{
-				System.out.println("That is an Invalid Response!");
+				System.out.println(response + " Is Not An Option.");
 			}
+			}
+			}
+			else{
+				System.out.println("That is an Invalid Response!");
+				ask();
+			}
+			
 		}
-		}
+		
 			catch(InputMismatchException e){
 				System.out.println("That is an Invalid Response!");
 				ask();
 		}
-		whichDays();
-		
-		
 		
 			
-			
+	}
+	
+	public static String choices(String[] days){
+		String choiceOut;
+		choiceOut = ("Your Chosen Days Are: " + Arrays.toString(days));
+		
+		return choiceOut;
 	}
 
 }

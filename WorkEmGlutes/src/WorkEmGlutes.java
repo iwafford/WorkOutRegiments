@@ -20,42 +20,86 @@ public class WorkEmGlutes {
 
 	public static void main(String[] args) {
 		ask();
+
 	}
 	
 	public static String[][] Organizer(){
-		System.out.println("yoyo");
+		
 		return workOut;
 	}
 	
 	public static String[] whichDays(){
 		Scanner scnr = new Scanner(System.in);
 		String response = null;
+		String[] check = new String[numDays]; 
 	System.out.println("Which " + numDays + " Would You Like To Work Out");
 	for(int i = 0; i < numDays;i++){
+		System.out.println("Day " + (i+1) + ": ");
 		response = scnr.nextLine().toLowerCase();
+		
 		switch(response){
 		
-		case "monday":
-			days[i] = response;
-		case "tuesday":
-			days[i] = response;
-		case "wednesday":
-			days[i] = response;
-		case "thursday":
-			days[i] = response;
-		case "friday":
-			days[i] = response;
-		case "saturday":
-			days[i] = response;
-		case "sunday":
-			days[i] = response;
-			default:
+		case "monday": days[i] = response;
+				for(int j = 1; j<i+2;j++){
+					if(days[j].equals("monday")){
+						System.out.println("That Day is Already Scheduled.");
+						i-=1;
+					}
+				}
+			break;
+		case "tuesday": days[i] = response;
+				for(int j = 1; j<i;j++){
+					if(days[j].equals("tuesday")){
+						System.out.println("That Day is Already Scheduled.");
+						i-=1;
+					}
+				}
+			break;
+		case "wednesday": days[i] = response;
+				for(int j = 1; j<i;j++){
+					if(days[j].equals("wednesday")){
+						System.out.println("That Day is Already Scheduled.");
+						i-=1;
+					}
+				}
+			break;
+		case "thursday": days[i] = response;
+				for(int j = 1; j<i;j++){
+					if(days[j].equals("thursday")){
+						System.out.println("That Day is Already Scheduled.");
+						i-=1;
+					}
+				}
+			break;
+		case "friday": days[i] = response;
+				for(int j = 1; j<i;j++){
+					if(days[j].equals("friday")){
+						System.out.println("That Day is Already Scheduled.");
+						i-=1;
+					}
+				}
+			break;
+		case "saturday": days[i] = response;
+				for(int j = 1; j<i;j++){
+					if(days[j].equals("saturday")){
+						System.out.println("That Day is Already Scheduled.");
+						i-=1;
+					}
+				}
+			break;
+		case "sunday": days[i] = response;
+				for(int j = 1; j<i;j++){
+					if(days[j].equals("sunday")){
+						System.out.println("That Day is Already Scheduled.");
+						i-=1;
+					}
+				}
+			break;
+		default:
 				System.out.println("That is an Invalid Response!");
-				whichDays();
-				
+				i-=1;
 		}
 	}
-	System.out.println(Arrays.toString(days));
 	return days;
 	}
 	

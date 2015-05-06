@@ -21,6 +21,7 @@ public class WorkEmGlutes {
 	public static void main(String[] args) {
 		ask();
 		System.out.println("Yous a hoe");
+		system.out.println("no you is");
 
 	}
 	
